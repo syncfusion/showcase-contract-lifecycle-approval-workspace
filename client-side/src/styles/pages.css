@@ -1,0 +1,819 @@
+/* Page CSS — Dashboard, Editor Workspace, shared loading/empty/error states.
+ * Tokens defined in global.css.
+ */
+
+/* --- Route fallback (lazy load) --- */
+.claw-route-fallback {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  padding: 96px 16px;
+  color: var(--secondary);
+  font-size: var(--font-small-size);
+}
+
+/* --- Screen heading --- */
+.claw-screen-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.claw-screen-heading h1 {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--font-h1-size);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.claw-screen-heading .claw-eyebrow {
+  display: block;
+  margin-bottom: 6px;
+}
+.muted {
+  color: var(--secondary);
+}
+.claw-screen-heading .muted {
+  color: var(--secondary);
+  margin: 0;
+}
+.claw-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* --- Error / empty / callout messages (Syncfusion Message) --- */
+.claw-state-message.e-message {
+  margin: 0 0 var(--space-md);
+}
+.claw-state-message-body h3 {
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-size: var(--font-h3-size);
+  font-weight: 600;
+}
+.claw-state-message-copy p {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--font-small-size);
+  color: var(--secondary);
+}
+.claw-state-message-action {
+  margin-top: var(--space-sm);
+}
+
+/* --- Syncfusion chips --- */
+.claw-chip.e-chip-list {
+  display: inline-flex;
+  padding: 0;
+  margin: 0 0 10px;
+}
+.claw-chip.e-chip-list .e-chip {
+  border-radius: var(--radius-sm);
+  height: auto;
+  min-height: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.claw-restriction-strip .claw-chip.e-chip-list,
+.claw-toolbar-group .claw-chip.e-chip-list,
+.claw-comparison-toolbar .claw-chip.e-chip-list,
+.claw-panel-heading .claw-chip.e-chip-list {
+  margin: 0;
+}
+
+.claw-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.claw-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.e-card.claw-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  padding: 0;
+}
+.e-card.claw-panel .e-card-header.claw-panel-heading {
+  padding: var(--space-lg) var(--space-lg) 0;
+  align-items: flex-start;
+}
+.e-card.claw-panel .e-card-content {
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+}
+.claw-panel-heading h2,
+.e-card.claw-panel .e-card-header-title {
+  margin: 0 0 4px;
+  font-size: var(--font-h2-size);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--primary);
+}
+.claw-panel-heading .muted { color: var(--secondary); margin: 0; font-size: 13px; }
+
+/* --- Template gallery (Syncfusion Card) --- */
+.claw-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.e-card.claw-template-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  padding: 0;
+  min-height: 0;
+  height: 100%;
+  justify-content: flex-start;
+  line-height: 1.45;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.e-card.claw-template-card::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  right: -28px;
+  bottom: -30px;
+  pointer-events: none;
+}
+.e-card.claw-template-card:hover,
+.e-card.claw-template-card:focus,
+.e-card.claw-template-card:active {
+  background: var(--surface);
+  background-color: var(--surface);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.e-card.claw-template-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.e-card.claw-template-card .e-card-image.claw-template-thumb {
+  min-height: 148px;
+  height: 148px;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface-muted);
+  background-size: cover;
+  background-position: top center;
+  overflow: hidden;
+}
+.e-card.claw-template-card .claw-template-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.e-card.claw-template-card .e-card-header {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 14px 16px 16px;
+  border-bottom: 0;
+  min-height: 0;
+  background: transparent;
+}
+.e-card.claw-template-card .e-card-header-caption {
+  align-self: stretch;
+  min-width: 0;
+  overflow: visible;
+}
+.e-card.claw-template-card .e-card-header .e-card-header-caption .e-card-header-title {
+  display: block;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0;
+  margin: 0 0 4px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+.e-card.claw-template-card .e-card-header .e-card-header-caption .e-card-sub-title {
+  display: block;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+.e-card.claw-template-card .claw-chip.e-chip-list {
+  margin-bottom: 10px;
+}
+
+/* --- Mock-data dialog ("Preview with data") --- */
+/* The whole dialog body is a single scroll area (one scrollbar); Cancel / Apply
+ * live in Syncfusion's native footer (.e-footer-content), which stays pinned
+ * below the content. The dialog is targeted to #root so it renders inside the
+ * React tree (list-item clicks fire through React) and is not clipped by the
+ * app-shell's overflow. */
+#claw-mock-data-dialog .e-dlg-header-content {
+  padding: 18px 28px 12px;
+}
+#claw-mock-data-dialog .e-dlg-content {
+  max-height: 58vh;
+  overflow-y: auto;
+  padding: 14px 28px 18px;
+}
+#claw-mock-data-dialog .e-footer-content {
+  padding: 16px 28px;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-muted);
+}
+#claw-mock-data-dialog .e-footer-content .e-btn {
+  min-width: 84px;
+}
+.claw-mock-data-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.claw-mock-data-body p.muted {
+  color: var(--secondary);
+  font-size: 12px;
+  margin: 0;
+}
+.claw-mock-data-list.e-listview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.claw-mock-data-list.e-listview .e-list-item {
+  height: auto;
+  line-height: normal;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+}
+/* Let the two-line template drive row height instead of the theme's fixed
+   single-line .e-list-text height (which pushed the subtitle below the row). */
+.claw-mock-data-list.e-listview .e-list-item .e-list-text {
+  height: auto;
+  line-height: normal;
+  white-space: normal;
+  display: block;
+  width: 100%;
+}
+.claw-mock-data-name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--primary);
+}
+.claw-mock-data-sub {
+  font-size: 11px;
+  line-height: 1.3;
+  margin-top: 2px;
+  color: var(--secondary);
+}
+.claw-mock-data-preview {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.claw-mock-data-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 4px 12px;
+  margin: 8px 0 0;
+}
+.claw-mock-data-fields dt {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  color: var(--secondary);
+  word-break: break-all;
+}
+.claw-mock-data-fields dd {
+  margin: 0;
+  font-size: 12px;
+  color: var(--primary);
+}
+.claw-mock-data-ok { color: var(--success); font-size: 11px; margin: 8px 0 0; }
+.claw-mock-data-warn { color: #b45309; font-size: 11px; margin: 8px 0 0; }
+
+/* --- Buttons --- */
+.claw-button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--primary);
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.claw-button:hover { border-color: var(--accent); }
+.claw-button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+.claw-button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* --- Editor workspace --- */
+.claw-feature-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.claw-feature-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 13px;
+}
+.claw-feature-toggle .e-checkbox-wrapper {
+  margin-top: 2px;
+}
+.claw-feature-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.3;
+}
+.claw-feature-title .claw-feature-tip,
+.claw-feature-title > * { display: inline-flex; align-items: center; }
+.claw-feature-toggle small strong { display: inline; }
+.claw-info-icon {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--secondary);
+  cursor: help;
+  opacity: 0.75;
+}
+.claw-info-icon:hover,
+.claw-info-icon:focus-visible { color: var(--accent, #2b6ef2); opacity: 1; outline: none; }
+.claw-feature-toggle small {
+  display: block;
+  color: var(--secondary);
+  font-size: 11px;
+}
+.claw-feature-state {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  justify-content: flex-end;
+  color: var(--secondary);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.claw-feature-state .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+.claw-feature-state.off .dot { background: var(--secondary); }
+
+.claw-restriction-strip {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+}
+.claw-restriction-strip .claw-chip.e-chip-list .e-chip {
+  border: 1px solid var(--border);
+}
+
+.claw-editor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  min-height: 610px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.claw-editor-pane {
+  position: relative;
+  min-width: 0;
+  background: #e7ecf2;
+}
+[data-theme="dark"] .claw-editor-pane { background: #0c1422; }
+.claw-editor-ej2 {
+  position: absolute;
+  inset: 0;
+}
+.claw-editor-host {
+  height: 100%;
+}
+.claw-role-switcher {
+  width: 160px;
+  min-height: 32px;
+}
+.claw-editor-loading[hidden] {
+  display: none !important;
+}
+.claw-editor-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--secondary);
+  font-size: 13px;
+  background: var(--surface);
+  z-index: 2;
+}
+
+.claw-side-panel {
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  padding: 18px;
+  overflow-y: auto;
+  max-height: 610px;
+}
+.claw-side-panel > .e-tab.claw-side-tabs {
+  margin: -18px -18px 16px;
+}
+.e-tab.claw-side-tabs {
+  border: 0;
+  background: transparent;
+}
+.e-tab.claw-side-tabs .e-content {
+  display: none;
+}
+.e-tab.claw-side-tabs .e-tab-header,
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-items {
+  background: var(--surface);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  height: auto;
+  min-height: 48px;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-items,
+.e-tab.claw-side-tabs .e-tab-header .e-hscroll,
+.e-tab.claw-side-tabs .e-tab-header .e-hscroll-bar,
+.e-tab.claw-side-tabs .e-tab-header .e-hscroll-content {
+  display: flex;
+  width: 100% !important;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-hor-nav,
+.e-tab.claw-side-tabs .e-tab-header .e-scroll-nav,
+.e-tab.claw-side-tabs .e-tab-header .e-close-icon {
+  display: none !important;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item:not(.e-separator),
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item.e-hidden {
+  display: flex !important;
+  flex: 1 1 0;
+  height: auto;
+  min-height: 48px;
+  min-width: 0;
+  margin: 0;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item .e-tab-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  min-height: 48px;
+  padding: 8px;
+  border-radius: 0;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item .e-text-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 32px;
+  width: 100%;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item .e-tab-text {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--font-caption-size);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--secondary);
+  text-align: center;
+  text-transform: none;
+  white-space: normal;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item .e-tab-wrap:hover .e-tab-text {
+  color: var(--primary);
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item.e-active .e-tab-text,
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item.e-active .e-tab-wrap:hover .e-tab-text {
+  color: var(--accent);
+  font-weight: 700;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item.e-active .e-text-wrap::before {
+  border-color: var(--accent);
+  border-width: 0 0 2px;
+  border-radius: 0;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-indicator {
+  background: var(--accent);
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-item .e-tab-wrap:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-pop {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-pop .e-toolbar-item .e-tab-text {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+}
+.e-tab.claw-side-tabs .e-tab-header .e-toolbar-pop .e-toolbar-item.e-active .e-tab-text {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.claw-side-panel .claw-state-message.e-message {
+  margin-bottom: 14px;
+}
+
+.claw-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.claw-field code {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--font-small-size);
+}
+.claw-field button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--primary);
+  padding: 4px 8px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.claw-field button:hover { border-color: var(--accent); color: var(--accent); }
+
+.claw-form-dropdown {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.claw-clause-library {
+  color: var(--primary);
+}
+.claw-clause-tree { margin-bottom: 14px; }
+.claw-clause-library .e-treeview,
+.claw-clause-library .e-listview {
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--primary);
+}
+.claw-clause-library .e-treeview .e-list-text,
+.claw-clause-library .e-treeview .e-list-item .e-text-content,
+.claw-clause-library .e-listview .e-list-item,
+.claw-clause-library .e-listview .e-list-text {
+  color: var(--primary);
+}
+.claw-clause-library .e-treeview .e-list-item.e-hover > .e-fullrow,
+.claw-clause-library .e-treeview .e-list-item.e-active > .e-fullrow,
+.claw-clause-library .e-treeview .e-list-item.e-hover > .e-text-content,
+.claw-clause-library .e-treeview .e-list-item.e-node-hover > .e-text-content,
+.claw-clause-library .e-listview .e-list-item.e-hover,
+.claw-clause-library .e-listview .e-list-item.e-active,
+.claw-clause-library .e-listview .e-list-item.e-focused {
+  background-color: var(--background);
+  color: var(--primary);
+}
+.claw-clause-library .e-treeview .e-icon-expandable,
+.claw-clause-library .e-treeview .e-icon-collapsible,
+.claw-clause-library .e-treeview .e-list-icon {
+  color: var(--secondary);
+}
+.claw-clause-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  font-size: 12px;
+  background: var(--surface-muted);
+  color: var(--primary);
+}
+
+/* --- Comparison (Review · Screen 3) --- */
+.claw-comparison-toolbar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.claw-comparison-side { display: flex; flex-direction: column; gap: 6px; min-width: 200px; flex: 1; }
+.claw-comparison-side strong { font-size: 13px; }
+.claw-version-select { min-width: 200px; margin-bottom: 0; }
+.claw-comparison-arrow { color: var(--secondary); font-size: 18px; }
+.claw-comparison-workspace {
+  position: relative;
+  min-height: 620px;
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  background: #e7ecf2;
+}
+[data-theme="dark"] .claw-comparison-workspace { background: #0c1422; }
+.claw-comparison-panel { height: 100%; }
+
+.claw-compare-grid {
+  display: flex;
+  gap: 6px;
+  height: 640px;
+  padding: 6px;
+}
+.claw-compare-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+}
+.claw-compare-col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* --- Sign & publish (Screen 4) --- */
+.claw-publish-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  min-height: 620px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.claw-publish-editor {
+  position: relative;
+  min-width: 0;
+  background: #e7ecf2;
+}
+[data-theme="dark"] .claw-publish-editor { background: #0c1422; }
+.claw-signature-panel {
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  padding: 18px;
+  overflow-y: auto;
+  max-height: 620px;
+}
+.claw-signature-panel h2 { margin: 0 0 14px; font-size: var(--font-h3-size); }
+.claw-signature-box.is-locked {
+  pointer-events: none;
+  opacity: 0.72;
+}
+.claw-field-stack { display: grid; gap: 6px; }
+.claw-field-stack .claw-eyebrow { margin-top: 8px; }
+.claw-signature-box {
+  position: relative;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  padding: 4px;
+}
+.claw-signature-box .e-signature { width: 100%; height: 150px; }
+.claw-signature-line {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  pointer-events: none;
+}
+.claw-signature-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.claw-signature-actions .claw-button { flex: 1; }
+
+/* --- Workspace toolbar --- */
+.claw-workspace-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.claw-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1280px) {
+  .claw-editor-layout { grid-template-columns: 1fr; }
+  .claw-side-panel { border-left: 0; border-top: 1px solid var(--border); max-height: none; }
+  .claw-publish-layout { grid-template-columns: 1fr; }
+  .claw-signature-panel { border-left: 0; border-top: 1px solid var(--border); max-height: none; }
+}
+@media (max-width: 1024px) {
+  .claw-three-col { grid-template-columns: 1fr; }
+  .claw-feature-controls { grid-template-columns: 1fr; }
+  .claw-feature-state { justify-content: flex-start; }
+}
+
+/* --- Export preview dialog (Sign & publish) --- */
+.claw-export-dialog .e-dlg-content {
+  padding: 0;
+  overflow: hidden;
+}
+.claw-export-viewer {
+  height: 100%;
+  min-height: 420px;
+}
+/* Skeleton mirrors the PdfViewer footprint: toolbar strip over a page body. */
+.claw-export-skeleton {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+  background: var(--surface-muted);
+}
+.claw-export-skeleton-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.claw-export-skeleton-body {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  min-height: 0;
+  padding: 20px 0;
+}
+.claw-dialog-footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+}

@@ -1,0 +1,44 @@
+/* Syncfusion component CSS imports (tailwind3 theme).
+ *
+ * Imports the light tailwind3 styles for every Syncfusion package used by this
+ * showcase so components render with the correct visual theme. Loaded once at
+ * app startup via main.tsx. Dark mode is applied by toggling `e-dark-mode` on
+ * <html>/<body> (Syncfusion remaps --color-sf-* tokens) together with the
+ * data-theme="dark" attribute and design-token overrides in global.css.
+ */
+
+/* Base + theme variables */
+@import "@syncfusion/ej2-base/styles/tailwind3.css";
+
+/* Buttons */
+@import "@syncfusion/ej2-buttons/styles/tailwind3.css";
+
+/* Inputs (TextBox, Signature, NumericTextBox, Uploader) */
+@import "@syncfusion/ej2-inputs/styles/tailwind3.css";
+
+/* Popups (Dialog, Tooltip, Spinner) */
+@import "@syncfusion/ej2-popups/styles/tailwind3.css";
+
+/* Lists (ListView) */
+@import "@syncfusion/ej2-lists/styles/tailwind3.css";
+
+/* Navigations (Sidebar, Tabs, TreeView, Stepper, Toolbar, Menu, Breadcrumb) */
+@import "@syncfusion/ej2-navigations/styles/tailwind3.css";
+
+/* Dropdowns (ComboBox, DropDownList) */
+@import "@syncfusion/ej2-dropdowns/styles/tailwind3.css";
+
+/* Layouts (Cards, Timeline, Splitter, Dashboard Layout) */
+@import "@syncfusion/ej2-layouts/styles/tailwind3.css";
+
+/* Notifications (Toast, Skeleton, Badge, Message, Spinner) */
+@import "@syncfusion/ej2-notifications/styles/tailwind3.css";
+
+/* Document Editor (lazy route — styles loaded eagerly for correct rendering).
+ * The Ribbon module is used to render the Word-style ribbon toolbar
+ * (toolbarMode="Ribbon"), so the ej2-ribbon styles are imported as well. */
+@import "@syncfusion/ej2-documenteditor/styles/tailwind3.css";
+@import "@syncfusion/ej2-ribbon/styles/tailwind3.css";
+
+/* PDF Viewer (lazy route) */
+@import "@syncfusion/ej2-pdfviewer/styles/tailwind3.css";

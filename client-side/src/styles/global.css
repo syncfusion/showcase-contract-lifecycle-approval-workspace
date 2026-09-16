@@ -1,0 +1,87 @@
+/* Global CSS — design tokens */
+:root {
+  color-scheme: light;
+  --primary: #172b4d;
+  --secondary: #526581;
+  --accent: #2563eb;
+  --background: #f5f7fa;
+  --surface: #ffffff;
+  --surface-muted: #eef2f7;
+  --border: #d9e2ec;
+  --error: #c9372c;
+  --warning: #b76e00;
+  --success: #1f845a;
+  --info: #0c66e4;
+  --shadow: 0 8px 24px rgba(23, 43, 77, 0.07);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --font-sans: "IBM Plex Sans", Inter, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+  --font-h1-size: 32px;
+  --font-h2-size: 24px;
+  --font-h3-size: 18px;
+  --font-body-size: 15px;
+  --font-small-size: 13px;
+  --font-caption-size: 12px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --primary: #e6edf7;
+  --secondary: #a9b8cc;
+  --accent: #70a5ff;
+  --background: #101828;
+  --surface: #182437;
+  --surface-muted: #223149;
+  --border: #34445b;
+  --error: #f87171;
+  --warning: #f2b84b;
+  --success: #66d19e;
+  --info: #70a5ff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--primary);
+  font: var(--font-body-size)/1.5 var(--font-sans);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+h1 {
+  font-size: var(--font-h1-size);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: var(--font-h2-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: var(--font-h3-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--font-small-size);
+  font-weight: 400;
+}
+
+#root {
+  min-height: 100vh;
+}

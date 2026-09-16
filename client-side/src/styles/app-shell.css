@@ -1,0 +1,314 @@
+/* AppShell layout — Syncfusion Sidebar + top bar */
+
+.claw-app-shell {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Keep the shell below Syncfusion's trial license bar (fixed, z-index 999999999). */
+body:has([style*="999999999"]) .claw-app-shell {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+}
+
+.claw-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.claw-skip-link:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 8px 12px;
+  clip: auto;
+  overflow: visible;
+  background: var(--primary);
+  color: var(--surface);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Syncfusion Sidebar surface */
+.e-sidebar.claw-sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  box-shadow: none;
+  color: var(--primary);
+}
+
+.claw-sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.e-sidebar.claw-sidebar:not(.e-open) .claw-sidebar-inner {
+  padding: 16px 8px;
+  align-items: center;
+}
+
+.claw-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 10px 34px;
+}
+
+.e-sidebar.claw-sidebar:not(.e-open) .claw-brand {
+  margin: 0 0 24px;
+  justify-content: center;
+}
+
+.claw-brand-mark {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: var(--surface);
+  font-weight: 700;
+}
+
+.claw-brand-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.claw-brand-sub {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.claw-eyebrow {
+  color: var(--secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.claw-nav-label {
+  margin: 0 10px 8px;
+}
+
+.claw-workflow-nav {
+  min-width: 0;
+}
+
+.claw-workflow-nav .e-stepper.claw-workflow-stepper {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  height: auto;
+}
+
+.claw-workflow-nav .claw-workflow-stepper .e-step-container {
+  min-height: 44px;
+}
+
+.claw-workflow-nav .claw-workflow-stepper .e-label,
+.claw-workflow-nav .claw-workflow-stepper .e-step-label-container .e-label {
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.claw-workflow-nav .claw-workflow-stepper .e-step-inprogress .e-label,
+.claw-workflow-nav .claw-workflow-stepper .e-step-selected .e-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.claw-workflow-nav .claw-workflow-stepper .e-step-completed .e-label {
+  color: var(--primary);
+}
+
+.claw-workflow-nav .claw-workflow-stepper .e-step-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.e-sidebar.claw-sidebar:not(.e-open) .claw-workflow-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.e-sidebar.claw-sidebar:not(.e-open) .claw-workflow-nav .e-stepper.claw-workflow-stepper {
+  width: 40px;
+  min-height: 220px;
+}
+
+.claw-sidebar-footer {
+  margin-top: auto;
+  padding: 14px 10px 0;
+  border-top: 1px solid var(--border);
+  color: var(--secondary);
+  font-size: 12px;
+}
+
+.e-sidebar.claw-sidebar:not(.e-open) .claw-brand-text,
+.e-sidebar.claw-sidebar:not(.e-open) .claw-eyebrow,
+.e-sidebar.claw-sidebar:not(.e-open) .claw-sidebar-footer {
+  display: none;
+}
+
+.e-sidebar-overlay {
+  background: rgba(23, 43, 77, 0.4);
+}
+
+[data-theme="dark"] .e-sidebar-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.claw-main {
+  min-width: 0;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.e-appbar.e-inherit.claw-topbar {
+  min-height: 72px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: none;
+  background: var(--surface);
+  color: var(--primary);
+  box-shadow: none;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.claw-topbar-start {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.claw-breadcrumb.e-breadcrumb,
+.claw-breadcrumb.e-breadcrumb .e-breadcrumb-item,
+.claw-breadcrumb.e-breadcrumb .e-breadcrumb-text {
+  color: var(--secondary);
+  font-size: var(--font-small-size);
+}
+
+.claw-breadcrumb.e-breadcrumb .e-breadcrumb-item:last-child .e-breadcrumb-text {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.claw-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.claw-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.claw-icon-button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--primary);
+  padding: 8px 12px;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-grid;
+  place-items: center;
+}
+
+.claw-icon-button svg {
+  display: block;
+}
+
+.claw-icon-button:hover {
+  border-color: var(--accent);
+}
+
+.claw-icon-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.claw-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.claw-theme-toggle-icon {
+  display: inline-grid;
+  place-items: center;
+  color: var(--primary);
+}
+
+.claw-theme-toggle-icon svg {
+  display: block;
+}
+
+.claw-content {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px;
+  flex: 1;
+}
+.claw-content-inner {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .e-appbar.e-inherit.claw-topbar {
+    padding: 12px 16px;
+  }
+
+  .claw-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .claw-breadcrumb {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ContractWorkspace.DocumentService</RootNamespace>
+    <AssemblyName>ContractWorkspace.DocumentService</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- OpenAPI (Microsoft.AspNetCore.OpenApi) -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
+    <!-- Syncfusion Document Editor server-side (SFDT conversion) v34.2.7 -->
+    <PackageReference Include="Syncfusion.EJ2.WordEditor.AspNet.Core" Version="34.2.7" />
+    <!-- DocIO: Word document load/save/edit/mail-merge/compare -->
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="34.2.7" />
+    <!-- DocIORenderer: Word -> PDF conversion -->
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="34.2.7" />
+    <!-- Linux native Skia/HarfBuzz assets required for DocIORenderer ConvertToPDF
+         on Azure App Service Linux. Versions pinned to DocIORenderer 34.2.7's
+         SkiaSharp 3.119.1 / HarfBuzzSharp 8.3.1.2 graph.
+         https://help.syncfusion.com/document-processing/word/conversions/word-to-pdf/net/nuget-packages-required-word-to-pdf -->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.1" />
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="8.3.1.2" />
+    <!-- Optional spell checker (Hunspell dictionaries in App_Data) -->
+    <PackageReference Include="Syncfusion.EJ2.SpellChecker.AspNet.Core" Version="34.2.7" />
+    <!-- Testing helpers exposed to the web project for integration harness -->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Logo watermark asset applied to generated DOCX/PDF. Copied to output so
+         it is readable from AppDomain.CurrentDomain.BaseDirectory at runtime. -->
+    <Content Update="wwwroot\Assets\watermark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
